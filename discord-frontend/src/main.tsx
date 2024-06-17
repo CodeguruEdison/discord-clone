@@ -6,7 +6,7 @@ import { ClerkProvider } from "@clerk/clerk-react";
 import "@mantine/core/styles.css";
 import "./index.css";
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
-import { RootLayout } from "./layout/root-layout.tsx";
+import { RootLayout } from "./layout/RootLayout.tsx";
 import { ProtectedRoute } from "./layout/protectedroute.tsx";
 import { HomePage } from "./pages/homepage.tsx";
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
@@ -25,13 +25,13 @@ export const RouterComponent = () => {
     >
       <Routes>
         <Route path='' element={<RootLayout />}>
-          <Route
+          <Route index
             element={
               <ProtectedRoute>
                 <HomePage />
               </ProtectedRoute>
             }
-          ></Route>
+          />
         </Route>
       </Routes>
     </ClerkProvider>
